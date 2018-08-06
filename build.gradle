@@ -21,7 +21,7 @@ repositories {
 }
 
 def template = project.properties.getOrDefault("template", "bobcat-junit")
-def target = project.properties.getOrDefault("target", "generated")
+def target = project.properties.getOrDefault("target", "generated-default-directory")
 
 generate.dependsOn cleanArchetype
 
@@ -35,6 +35,7 @@ generate.doLast{
         from "generated"
         into "${target}"
     }
+    delete 'generated'
     copy {
         from "gradle"
         into "${target}/gradle"
