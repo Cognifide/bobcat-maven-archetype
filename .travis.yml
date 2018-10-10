@@ -1,34 +1,34 @@
 language: java
+sudo: false
 
 env:
-  - TEMPLATE=bobcat-aem-bdd
-  - TEMPLATE=bobcat-aem-junit
-  - TEMPLATE=bobcat-appium
-  - TEMPLATE=bobcat-bdd
-  - TEMPLATE=bobcat-junit
-  - TEMPLATE=bobcat-junit5
+- TEMPLATE=bobcat-aem-bdd
+- TEMPLATE=bobcat-aem-junit
+- TEMPLATE=bobcat-appium
+- TEMPLATE=bobcat-bdd
+- TEMPLATE=bobcat-junit
+- TEMPLATE=bobcat-junit5
 
 addons:
   firefox: "62.0"
 
 cache:
   directories:
-    - '$HOME/.m2/repository'
+- '$HOME/.m2/repository'
 
 install: true
 
 before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
-  - wget https://github.com/mozilla/geckodriver/releases/download/v0.23.0/geckodriver-v0.23.0-linux64.tar.gz
-  - mkdir geckodriver
-  - tar -xzf geckodriver-v0.23.0-linux64.tar.gz -C geckodriver
-  - export PATH=$PATH:$PWD/geckodriver
+- "export DISPLAY=:99.0"
+- "sh -e /etc/init.d/xvfb start"
+- sleep 3 # give xvfb some time to start
+- wget https://github.com/mozilla/geckodriver/releases/download/v0.23.0/geckodriver-v0.23.0-linux64.tar.gz
+- mkdir geckodriver
+- tar -xzf geckodriver-v0.23.0-linux64.tar.gz -C geckodriver
+- export PATH=$PATH:$PWD/geckodriver
 
-sudo: false
 script:
-  - "./gradlew generate -i -Dtemplate=${TEMPLATE} -Dgroup=com.cognifide.qa.bb -Dname=test-${TEMPLATE} -Dversion=1.0-SNAPSHOT"
+  - ./gradlew generate -i -Dtemplate="${TEMPLATE}" -Dgroup=com.cognifide.qa.bb -Dname=test-"${TEMPLATE}" -Dversion=1.0-SNAPSHOT
   - cd generated
   - chmod +x gradlew
   - ./gradlew clean test -Dwebdriver.type=firefox -Dwebdriver.firefox.bin="$(which firefox)"
