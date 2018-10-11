@@ -28,7 +28,7 @@ before_script:
 - export PATH=$PATH:$PWD/geckodriver
 
 script:
-  - ./gradlew generate -i -Dtemplate="${TEMPLATE}" -Dgroup=com.cognifide.qa.bb -Dname=test-"${TEMPLATE}" -Dversion=1.0-SNAPSHOT
-  - cd generated
+  - ./gradlew generate -i -Ptemplate="${TEMPLATE}" -Dgroup=com.cognifide.qa.bb -Dname=test-"${TEMPLATE}" -Dversion=1.0-SNAPSHOT
+  - cd generated-project
   - chmod +x gradlew
   - ./gradlew clean test -Dwebdriver.type=firefox -Dwebdriver.firefox.bin="$(which firefox)"
