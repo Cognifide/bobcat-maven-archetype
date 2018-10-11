@@ -1,7 +1,7 @@
 package @packageName@.pageobjects;
 
 import com.cognifide.qa.bb.constants.Timeouts;
-import com.cognifide.qa.bb.provider.selenium.BobcatWait;
+import com.cognifide.qa.bb.wait.BobcatWait;
 import com.google.inject.Inject;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,7 +19,7 @@ public class DefinitionPage {
   private WebElement heading;
 
   public String getHeading() {
-    bobcatWait.withTimeout(Timeouts.SMALL).until(ExpectedConditions.visibilityOf(heading));
+    bobcatWait.until(ExpectedConditions.visibilityOf(heading));
     return heading.getText();
   }
 }

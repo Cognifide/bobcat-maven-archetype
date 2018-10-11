@@ -2,8 +2,6 @@ language: java
 sudo: false
 
 env:
-- TEMPLATE=bobcat-aem-bdd
-- TEMPLATE=bobcat-aem-junit
 - TEMPLATE=bobcat-appium
 - TEMPLATE=bobcat-bdd
 - TEMPLATE=bobcat-junit
