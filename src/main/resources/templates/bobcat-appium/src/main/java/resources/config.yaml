@@ -5,4 +5,5 @@ default:
     proxy.port: 9000
     bobcat.report.path: ./target/report
     bobcat.report.reporters: html,json,simple,stdout
+    timings.implicitTimeout: 10
   contexts: [appium]

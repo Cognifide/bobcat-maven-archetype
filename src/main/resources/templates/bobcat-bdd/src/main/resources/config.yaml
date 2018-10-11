@@ -5,7 +5,7 @@ default:
     proxy.port: 9000
     bobcat.report.path: ./target/report
     bobcat.report.reporters: html,json,simple,stdout
-    webdriver.defaultTimeout: 10
+    timings.implicitTimeout: 10
     page.title.timeout: 30
     thread.count: 3
   contexts: [chrome]
