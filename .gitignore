@@ -1,4 +1,5 @@
 .gradle
 .idea
 generated
+generated-project
 /bobcat-gradle-template.iml
