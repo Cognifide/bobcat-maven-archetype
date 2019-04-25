@@ -20,22 +20,29 @@ dependencies {
     compile group: 'com.cognifide.qa.bb', name: 'bb-cumber', version: bobcatVersion
 }
 
-
 def profiles = [
         'firefox': 'firefox'
 ]
 
-task loadProperties {
-    def profile = System.getProperty('profile', 'default')
-    if (!profile.equals('default')) {
-        System.setProperty("bobcat.config.contexts", profiles[profile])
+configurations {
+    cucumberRuntime {
+        extendsFrom testRuntime
     }
 }
 
-test.dependsOn loadProperties
+task cucumber() {
+    def profile = System.getProperty('profile', 'default')
+    if (!profile.equals('default')) {
+        System.setProperty('bobcat.config.contexts', profile)
+    }
 
-test {
-    systemProperties = System.getProperties()
-    maxParallelForks = maximumThreads
-    forkEvery = maximumTestsInThread
+    dependsOn assemble, compileJava, compileTestJava
+    doLast {
+        javaexec {
+            main = "cucumber.api.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = cucumberArgs
+            systemProperties = System.getProperties()
+        }
+    }
 }

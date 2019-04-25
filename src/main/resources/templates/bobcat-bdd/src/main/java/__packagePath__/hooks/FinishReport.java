@@ -1,7 +1,5 @@
 package @packageName@.hooks;
 
-import java.util.List;
-
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;

@@ -12,7 +12,7 @@ public class CucumberInjectorSource implements InjectorSource {
 
 	@Override
 	public Injector getInjector() {
-		return Guice.createInjector(CucumberModules.SCENARIO, new BobcatRunModule());
+		return Guice.createInjector(CucumberModules.createScenarioModule(), new BobcatRunModule());
 	}
 
 }

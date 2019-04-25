@@ -1,4 +1,4 @@
-package @packageName@.pageobjects;
+package @packageName@.example;
 
 import java.util.Collections;
 import com.cognifide.qa.bb.constants.Timeouts;
