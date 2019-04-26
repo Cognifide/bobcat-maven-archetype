@@ -8,9 +8,6 @@ sourceCompatibility = 1.8
 def bobcatVersion = '@bobcatVersion@'
 def cucumberVersion = '4.2.6'
 
-def maximumThreads = 3
-def maximumTestsInThread = 1
-
 repositories {
     mavenLocal()
     mavenCentral()
