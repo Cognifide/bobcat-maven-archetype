@@ -1,11 +1,10 @@
-appium:
-  webdriver.type: appium
+appium-android:
+  webdriver.type: android
   webdriver.appium.url: http://127.0.0.1:4723/wd/hub
   webdriver.cap.automationName: UiAutomator2
   webdriver.cap.deviceName: Your Phone
   webdriver.cap.udid: CHANGE ME TO YOUR DEVICE'S UDID
-  webdriver.cap.platformName: Android
-  webdriver.cap.platformVersion: 8.1
+  webdriver.cap.platformVersion: PLATFORM VERSION
   webdriver.cap.browserName: Chrome
   webdriver.mobile: true
   webdriver.reusable: false

@@ -1,0 +1,11 @@
+appium-ios:
+  webdriver.type: ios
+  webdriver.appium.url: http://127.0.0.1:4723/wd/hub
+  webdriver.cap.automationName: XCuiTest
+  webdriver.cap.deviceName: Your Phone
+  webdriver.cap.udid: CHANGE ME TO YOUR DEVICE'S UDID
+  webdriver.cap.platformVersion: PLATFORM VERSION
+  webdriver.cap.browserName: Safari
+  webdriver.mobile: true
+  webdriver.reusable: false
+  webdriver.maximize: false

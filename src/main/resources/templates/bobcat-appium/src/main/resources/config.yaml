@@ -6,4 +6,4 @@ default:
     allure.report: true
     allure.create.enviroment: true
     timings.implicitTimeout: 10
-  contexts: [appium]
+  contexts: [appium-android]
