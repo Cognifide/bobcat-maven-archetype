@@ -1,12 +1,12 @@
 language: java
-sudo: false
+dist: trusty
 
 env:
   - TEMPLATE=bobcat-bdd
   - TEMPLATE=bobcat-junit5
-
-addons:
-  firefox: latest
+  - TEMPLATE=bobcat-appium
+  - TEMPLATE=bobcat-aem-bdd
+  - TEMPLATE=bobcat-aem-junit
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -16,19 +16,5 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 
-install: true
-
-before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
-  - wget https://github.com/mozilla/geckodriver/releases/download/v0.23.0/geckodriver-v0.23.0-linux64.tar.gz
-  - mkdir geckodriver
-  - tar -xzf geckodriver-v0.23.0-linux64.tar.gz -C geckodriver
-  - export PATH=$PATH:$PWD/geckodriver
-
 script:
-  - ./gradlew generate -i -Ptemplate="${TEMPLATE}" -Dgroup=com.cognifide.qa.bb -Dname=test-"${TEMPLATE}" -Dversion=1.0-SNAPSHOT
-  - cd generated-project
-  - chmod +x gradlew
-  - ./gradlew clean test -Dwebdriver.type=firefox -Dwebdriver.firefox.bin="$(which firefox)"
+  - ./generate_and_test.sh
