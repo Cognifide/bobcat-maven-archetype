@@ -15,6 +15,7 @@ repositories {
 }
 
 dependencies {
+    testCompile 'junit:junit:4.12'
     compile group: 'com.cognifide.qa.bb', name: 'bb-core', version: bobcatVersion
     compile group: 'com.cognifide.qa.bb', name: 'bb-aem-core', version: bobcatVersion
     compile group: 'com.cognifide.qa.bb', name: aemDependency, version: bobcatVersion
